@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./nesting.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -50,7 +49,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+function employeeUpdater() {
+  employees.forEach(function(object){
+    if(object.firstName === "Theo"){
+      delete employees[employees.indexOf(object)];
+    } else if(object.firstName === "Lorie"){
+      object.department = 'HR'
+    }
+  })
+  return employees
+}
 
 
 
@@ -68,9 +76,15 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
-
-
+function removeDuplicates(){
+  for(let e = 0; e < workplaceAccidents.length; e++)
+    for(let i = 0; i < workplaceAccidents.length; i++){
+      if(e != i && workplaceAccidents[e] === workplaceAccidents[i]){
+        workplaceAccidents.splice(e,1)
+      }
+    }  
+  return workplaceAccidents;
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -97,8 +111,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity= cat.catFriends[0].activities[1];
+var fluffy2ndFriend= cat.catFriends[1].name;
 
 
 
@@ -137,9 +151,11 @@ var myCar = {
     2. Loop over the accidents array.
     3. Change atFaultForAccident from true to false.
 */
-
-//Code Here
-
+function recordCleaner() {
+  for (i = 0; i < myCar.accidents.length; i++){
+    myCar.accidents[i].atFaultForAccident = false;
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -157,6 +173,16 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
-
+function looper(){
+  numsArr.forEach(function(arr){
+    for(i = 0; i <arr.length; i++){
+      if(arr[i] % 2 > 0){
+        arr[i] = 'odd'
+      } else {
+        arr[i] = 'even'
+      }
+    }
+  })
+  return numsArr;
+}
 
